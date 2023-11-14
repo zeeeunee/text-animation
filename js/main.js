@@ -1,6 +1,7 @@
 const main = document.querySelector('main');
 const btns = main.querySelectorAll('li');
 const boxs = main.querySelectorAll('article');
+const tits = main.querySelectorAll('h1');
 
 // btns.forEach((btn, idx) => {
 // 	btn.addEventListener('click', () => {
@@ -24,10 +25,12 @@ function activation(arr, idx) {
 	arr[idx].classList.add('on');
 }
 
-function splitText(el) {
-	const dom = document.querySelector(el);
-	let tags = '';
-	for (let letter of dom.innerText) tags += `<span>${letter}</span>`;
+splitText(tits[0]); //인수로 h1 DOM자체를 전달
+splitText(tits[1]);
 
-	dom.innerHTML = tags;
+//해당함수는 DOM자체를 인수로 전달받음
+function splitText(el) {
+	let tags = '';
+	for (let letter of el.innerText) tags += `<span>${letter}</span>`;
+	el.innerHTML = tags;
 }

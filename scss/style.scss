@@ -39,8 +39,25 @@ main {
 			align-items: center;
 			font-size: 4rem;
 
+			h1 {
+				span {
+					display: inline-block;
+					transform: scale(3);
+					opacity: 0;
+					transition-duration: 1s;
+				}
+			}
+
+			//박스가 활성화 되었을 때
 			&.on {
 				opacity: 1;
+
+				h1 {
+					span {
+						transform: scale(1);
+						opacity: 1;
+					}
+				}
 			}
 		}
 	}
