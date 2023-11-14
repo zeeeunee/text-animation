@@ -25,12 +25,16 @@ function activation(arr, idx) {
 	arr[idx].classList.add('on');
 }
 
-splitText(tits[0]); //인수로 h1 DOM자체를 전달
-splitText(tits[1]);
+splitText(tits[0], 0.2); //인수로 h1 DOM자체를 전달
+splitText(tits[1], 0.1);
 
 //해당함수는 DOM자체를 인수로 전달받음
-function splitText(el) {
+function splitText(el, interval) {
 	let tags = '';
-	for (let letter of el.innerText) tags += `<span>${letter}</span>`;
+	let count = 0; //for of는 카운트기능이 없어서 카운트변수 만들어서 카운트 해준다
+	for (let letter of el.innerText) {
+		tags += `<span style='transition-delay:${interval * count}s;'>${letter}</span>`;
+		count++; //1씩증가
+	}
 	el.innerHTML = tags;
 }
